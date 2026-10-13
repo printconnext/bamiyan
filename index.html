@@ -14,6 +14,15 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* Direct Priority Styles for Center Hero Elements */
+    .hero-bg {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-position: center center !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+    }
     .hero-content {
       display: flex !important;
       flex-direction: column !important;
@@ -273,9 +282,8 @@
   <div class="hero-bg-gradient"></div>
   <div class="hero-particles"></div>
 
-  <!-- สามารถใส่ภาพจริงในแท็กนี้ -->
   <div class="hero-bg" id="heroBg"
-    style="background-image: url('images/hero-buddha.jpeg'), linear-gradient(135deg, #2C1810 0%, #1e3328 50%, #0d1f18 100%);">
+    style="background: linear-gradient(to bottom, rgba(26,18,8,0.3) 0%, rgba(26,18,8,0.55) 50%, rgba(26,18,8,0.85) 100%), url('images/hero-buddha.jpeg') center center / cover no-repeat !important; background-size: cover !important; background-repeat: no-repeat !important; background-position: center center !important;">
   </div>
 
   <div class="hero-content">
