@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบจัดการข่าวสารและกิจกรรม | พุทธอุทยานโชคชัย-บามิยัน</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ============================================================
+       PIN LOGIN SCREEN
+       ============================================================ -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <img src="images/logo.jpg" alt="ตรามูลนิธิ" class="login-logo" />
+      <h2 class="login-title">ระบบจัดการหลังบ้าน</h2>
+      <p class="login-sub">พุทธอุทยานโชคชัย-บามิยัน สถานธรรมมาตาปิตโร</p>
+      
+      <div class="pin-input-group">
+        <label class="form-label" for="pinInput" style="margin-bottom:0.75rem;">รหัสผ่าน PIN ผู้ดูแลระบบ</label>
+        <input type="password" id="pinInput" class="form-control pin-input" maxlength="20" placeholder="••••••••••" autocomplete="off" />
+        <div style="margin-top:0.6rem;font-size:0.78rem;color:var(--gold-light);opacity:0.8;">
+          (รหัสผ่าน: <strong>0994405888</strong>)
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-gold" id="loginBtn" style="width:100%;justify-content:center;padding:0.75rem;">
+        🔐 เข้าสู่ระบบ
+      </button>
+
+      <div style="margin-top:1.5rem;">
+        <a href="index.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;">
+          ← กลับสู่หน้าหลักเว็บไซต์
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TOP NAVBAR
+       ============================================================ -->
+  <header class="admin-navbar">
+    <a href="admin.html" class="admin-brand">
+      <img src="images/logo.jpg" alt="ตราสัญลักษณ์มูลนิธิ" class="admin-brand-logo" />
+      <div class="admin-brand-text">
+        <h1>พุทธอุทยานโชคชัย-บามิยัน</h1>
+        <span>ระบบจัดการข่าวสารและภาพกิจกรรม (Admin Portal)</span>
+      </div>
+    </a>
+
+    <div class="admin-nav-actions">
+      <a href="index.html#progress" target="_blank" class="btn btn-outline btn-sm">
+        🌐 ดูหน้าเว็บหลัก ↗
+      </a>
+      <button type="button" class="btn btn-outline btn-sm" id="exportBtn" title="ดาวน์โหลดไฟล์สำรองข้อมูล JSON">
+        💾 ส่งออก JSON
+      </button>
+      <button type="button" class="btn btn-outline btn-sm" id="importBtn" title="นำเข้าข้อมูลจากไฟล์ JSON">
+        📥 นำเข้า JSON
+      </button>
+      <input type="file" id="importFileInput" accept=".json" style="display:none;" />
+      <button type="button" class="btn btn-danger btn-sm" id="logoutBtn">
+        ออกจากระบบ
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT CONTAINER
+       ============================================================ -->
+  <main class="admin-container">
+    
+    <!-- Stats Row -->
+    <section class="stats-row">
+      <div class="stat-box">
+        <div class="stat-icon">📰</div>
+        <div class="stat-info">
+          <div class="stat-val" id="totalNewsCount">0</div>
+          <div class="stat-lbl">บทความ/ข่าวกิจกรรมทั้งหมด</div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">💾</div>
+        <div class="stat-info">
+          <div class="stat-val" style="font-size:1.25rem;">IndexedDB</div>
+          <div class="stat-lbl">พื้นที่จัดเก็บภาพความละเอียดสูง</div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">✨</div>
+        <div class="stat-info">
+          <div class="stat-val" style="font-size:1.25rem;color:var(--gold-light);">Sync อัตโนมัติ</div>
+          <div class="stat-lbl">เชื่อมโยงหน้าเว็บ index.html ทันที</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls Bar -->
+    <section class="admin-controls">
+      <div class="search-filter-wrap">
+        <input type="text" id="searchInput" class="admin-input search-input" placeholder="🔍 ค้นหาหัวข้อข่าวหรือเนื้อหา..." />
+        <select id="categoryFilter" class="admin-select">
+          <option value="">ทั้งหมดทุกหมวดหมู่</option>
+          <option value="ข่าวกิจกรรม">ข่าวกิจกรรม</option>
+          <option value="การก่อสร้าง">การก่อสร้าง</option>
+          <option value="กิจกรรม">กิจกรรม</option>
+          <option value="ธรรมะ">ธรรมะ</option>
+          <option value="โครงการ">โครงการ</option>
+        </select>
+      </div>
+
+      <div style="display:flex;gap:0.75rem;">
+        <button type="button" class="btn btn-outline" id="resetBtn" title="คืนค่ารายการตัวอย่างดั้งเดิม">
+          🔄 ค่าเริ่มต้น
+        </button>
+        <button type="button" class="btn btn-gold" id="openAddModalBtn">
+          ＋ เพิ่มข่าว/กิจกรรมใหม่
+        </button>
+      </div>
+    </section>
+
+    <!-- News Cards Grid -->
+    <section class="news-manage-grid" id="newsList">
+      <!-- Dynamic render by admin.js -->
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       ADD / EDIT MODAL
+       ============================================================ -->
+  <div class="modal-overlay" id="newsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">เพิ่มข่าว/กิจกรรมใหม่</h2>
+        <button type="button" class="modal-close" id="closeModalBtn">&times;</button>
+      </div>
+
+      <form id="newsForm">
+        <div class="modal-body">
+          
+          <!-- Title -->
+          <div class="form-group">
+            <label class="form-label" for="newsTitle">หัวข้อข่าว / กิจกรรม <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="newsTitle" class="form-control" placeholder="เช่น พิธีเททองหล่อพระประธาน..." required />
+          </div>
+
+          <!-- Category & Date -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="form-group">
+              <label class="form-label" for="newsCategory">หมวดหมู่</label>
+              <select id="newsCategory" class="form-control">
+                <option value="ข่าวกิจกรรม">ข่าวกิจกรรม</option>
+                <option value="การก่อสร้าง">การก่อสร้าง</option>
+                <option value="กิจกรรม">กิจกรรม</option>
+                <option value="ธรรมะ">ธรรมะ</option>
+                <option value="โครงการ">โครงการ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="newsDate">วันที่จัดกิจกรรม / เผยแพร่</label>
+              <input type="text" id="newsDate" class="form-control" placeholder="เช่น ๑๒ ตุลาคม ๒๕๖๘" />
+            </div>
+          </div>
+
+          <!-- Image Upload Dropzone -->
+          <div class="form-group">
+            <label class="form-label">รูปภาพประกอบข่าว / กิจกรรม</label>
+            
+            <div class="dropzone-area" id="dropzoneArea">
+              <div class="dropzone-icon">📷</div>
+              <div class="dropzone-text"><strong>คลิกเพื่อเลือกรูปภาพ</strong> หรือลากไฟล์มาวางที่นี่</div>
+              <div class="dropzone-subtext">รองรับ JPG, PNG, WEBP (ระบบปรับขนาดให้คมชัดและโหลดไวโดยอัตโนมัติ)</div>
+            </div>
+            
+            <input type="file" id="imageInput" accept="image/*" style="display:none;" />
+
+            <div class="preview-container" id="previewContainer">
+              <img id="previewImg" src="" alt="พรีวิวภาพ" />
+              <button type="button" class="remove-img-btn" id="removeImgBtn" title="ลบรูปภาพ">&times;</button>
+            </div>
+          </div>
+
+          <!-- Short Excerpt -->
+          <div class="form-group">
+            <label class="form-label" for="newsExcerpt">คำโปรยย่อ (แสดงบนการ์ดหน้าแรก)</label>
+            <textarea id="newsExcerpt" class="form-control" rows="2" placeholder="สรุปเนื้อหาสั้น ๆ 1-2 บรรทัดสำหรับแสดงบนการ์ด..."></textarea>
+          </div>
+
+          <!-- Full Content -->
+          <div class="form-group">
+            <label class="form-label" for="newsContent">เนื้อหาข่าวฉบับเต็ม (เมื่อคลิกอ่าน)</label>
+            <textarea id="newsContent" class="form-control" rows="5" placeholder="พิมพ์รายละเอียดโครงการ ข้อมูลเวลา สถานที่ วัตถุประสงค์ หรือประมวลภาพกิจกรรม..."></textarea>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelBtn">ยกเลิก</button>
+          <button type="submit" class="btn btn-gold" id="saveNewsBtn">💾 บันทึกข้อมูล</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/news-db.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

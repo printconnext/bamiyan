@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="พุทธอุทยานโชคชัย-บามิยัน สถานธรรมมาตาปิตโร อำเภอโชคชัย จังหวัดนครราชสีมา — จรรโลงพระพุทธศาสนา ศูนย์วิปัสสนา และแหล่งเรียนรู้พุทธศิลป์ระดับนานาชาติ" />
+  <meta name="keywords" content="พุทธอุทยานโชคชัย, บามิยัน, สถานธรรมมาตาปิตโร, วิปัสสนา, โชคชัย, นครราชสีมา, Buddhist Park, Bamiyan" />
+  <meta property="og:title" content="พุทธอุทยานโชคชัย-บามิยัน สถานธรรมมาตาปิตโร" />
+  <meta property="og:description" content="จรรโลงพระพุทธศาสนา สู่อนุสรณ์แห่งศรัทธาระดับโลก ณ โชคชัย นครราชสีมา" />
+  <meta property="og:type" content="website" />
+  <title>พุทธอุทยานโชคชัย-บามิยัน | สถานธรรมมาตาปิตโร</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="apple-touch-icon" href="images/logo.jpg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Direct Priority Styles for Center Hero Elements */
+    .hero-content {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      width: 100% !important;
+    }
+    .hero-emblem-wrap {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      margin: 0 auto 1.5rem auto !important;
+    }
+    .hero-emblem-img {
+      width: clamp(160px, 20vw, 210px) !important;
+      height: clamp(160px, 20vw, 210px) !important;
+      border: 4px solid var(--gold) !important;
+    }
+    .hero-badge-wrap {
+      display: flex !important;
+      justify-content: center !important;
+      width: 100% !important;
+      margin: 0 auto 1.25rem auto !important;
+    }
+    .hero-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #14432E !important;
+      background: rgba(245, 252, 247, 0.96) !important;
+      border: 1.5px solid #1B563B !important;
+    }
+    .hero-badge::before {
+      color: #14432E !important;
+    }
+    .hero-title .highlight {
+      color: #278156 !important;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.4), 0 3px 16px rgba(0, 0, 0, 0.95), 0 0 35px rgba(39, 129, 86, 0.5) !important;
+    }
+    .hero-desc {
+      max-width: 820px !important;
+    }
+    .arch-card-img {
+      opacity: 1 !important;
+      overflow: hidden;
+    }
+    .arch-card-img img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.5s ease;
+    }
+    .arch-card:hover .arch-card-img img {
+      transform: scale(1.06);
+    }
+    .news-card-img {
+      opacity: 1 !important;
+      overflow: hidden !important;
+    }
+    .news-card-img img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.5s ease;
+    }
+    .news-card:hover .news-card-img img {
+      transform: scale(1.06);
+    }
+    .news-card {
+      cursor: pointer;
+    }
+    /* Article Reader Modal */
+    .article-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 11, 7, 0.88);
+      backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .article-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .article-modal-container {
+      background: #142E20;
+      border: 1px solid rgba(200, 169, 110, 0.5);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 760px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      position: relative;
+      color: #F8F5F0;
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .article-modal-overlay.active .article-modal-container {
+      transform: translateY(0) scale(1);
+    }
+    .article-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #FFF;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+    .article-modal-close:hover {
+      background: var(--gold);
+      color: #121A15;
+    }
+    .article-modal-img-wrap {
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-height: 380px;
+      background: #0A1710;
+      overflow: hidden;
+      border-top-left-radius: 19px;
+      border-top-right-radius: 19px;
+    }
+    .article-modal-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .article-modal-content-wrap {
+      padding: 2rem 2.25rem;
+    }
+    .article-modal-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--gold);
+      color: #121A15;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    .article-modal-date {
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+    }
+    .article-modal-title {
+      font-family: var(--font-thai);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+    }
+    .article-modal-body {
+      font-size: 1rem;
+      color: rgba(248, 245, 240, 0.88);
+      line-height: 1.85;
+      white-space: pre-line;
+    }
+    .admin-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      padding: 0.45rem 1.1rem;
+      background: rgba(200, 169, 110, 0.15);
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      color: var(--sand-light);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .admin-link-btn:hover {
+      background: var(--gold);
+      color: #121A15;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(200, 169, 110, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <a class="nav-logo" href="#hero">
+    <img src="images/logo.jpg" alt="ตรามูลนิธิพุทธบารมีญาณ" class="nav-logo-img" />
+    <div class="nav-logo-text">
+      พุทธอุทยานโชคชัย-บามิยัน
+      <span>สถานธรรมมาตาปิตโร</span>
+    </div>
+  </a>
+
+  <ul class="nav-menu">
+    <li><a class="nav-link" href="#about">เกี่ยวกับโครงการ</a></li>
+    <li><a class="nav-link" href="#masterplan">ผังโครงการ</a></li>
+    <li><a class="nav-link" href="#construction">การก่อสร้าง</a></li>
+    <li><a class="nav-link" href="#dharma">ธรรมและการเรียนรู้</a></li>
+    <li><a class="nav-link" href="#progress">ข่าว/กิจกรรม</a></li>
+    <li><a class="nav-link" href="#visit">เยี่ยมชม</a></li>
+    <li><a class="nav-link" href="#donate">ติดต่อเรา</a></li>
+  </ul>
+
+  <div style="display:flex; align-items:center; gap:0.5rem;">
+    <button class="nav-lang">TH</button>
+    <button class="nav-donate-btn" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">ร่วมสร้างบุญ</button>
+  </div>
+
+  <div class="nav-hamburger" aria-label="เมนู">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav">
+  <button class="mobile-nav-close">✕</button>
+  <div class="mobile-nav-brand">
+    <img src="images/logo.jpg" alt="ตรามูลนิธิพุทธบารมีญาณ" class="mobile-nav-logo-img" />
+    <div class="mobile-nav-title">พุทธอุทยานโชคชัย-บามิยัน</div>
+  </div>
+  <a class="nav-link" href="#about">เกี่ยวกับโครงการ</a>
+  <a class="nav-link" href="#masterplan">ผังโครงการ</a>
+  <a class="nav-link" href="#construction">การก่อสร้าง</a>
+  <a class="nav-link" href="#dharma">ธรรมและการเรียนรู้</a>
+  <a class="nav-link" href="#progress">ข่าว/กิจกรรม</a>
+  <a class="nav-link" href="#visit">เยี่ยมชม</a>
+  <a class="nav-link" href="#donate">ร่วมสร้างบุญ</a>
+</div>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-particles"></div>
+
+  <!-- สามารถใส่ภาพจริงในแท็กนี้ -->
+  <div class="hero-bg" id="heroBg"
+    style="background-image: url('images/hero-buddha.jpeg'), linear-gradient(135deg, #2C1810 0%, #1e3328 50%, #0d1f18 100%);">
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-emblem-wrap">
+      <div class="hero-emblem-glow"></div>
+      <img src="images/logo.jpg" alt="ตรามูลนิธิพุทธบารมีญาณ" class="hero-emblem-img" />
+    </div>
+
+    <div class="hero-badge-wrap">
+      <div class="hero-badge">พุทธสถาปัตยกรรม · อำเภอโชคชัย · จังหวัดนครราชสีมา</div>
+    </div>
+
+    <h1 class="hero-title" data-lang-th>
+      จากพุทธะบามิยัน<br>
+      สู่<span class="highlight">พุทธอุทยานแห่งศรัทธา</span>
+    </h1>
+    <h1 class="hero-title" data-lang-en style="display:none;">
+      From the Buddhas of Bamiyan<br>
+      To a <span class="highlight">Park of Faith</span>
+    </h1>
+
+    <p class="hero-subtitle" data-lang-th>ณ โชคชัย นครราชสีมา</p>
+    <p class="hero-subtitle" data-lang-en style="display:none;">Chokchai, Nakhon Ratchasima, Thailand</p>
+
+    <div class="hero-location">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      ต.ด่านเกวียน อ.โชคชัย จ.นครราชสีมา 30190
+    </div>
+
+    <p class="hero-desc" data-lang-th>
+      พุทธสถาปัตยกรรม จรรโลงพระพุทธศาสนา จากพระพุทธะบามิยัน แห่งอัฟกานิสถาน<br>
+      สู่สถานธรรมมาตาปิตโร อำเภอโชคชัย จังหวัดนครราชสีมา
+    </p>
+    <p class="hero-desc" data-lang-en style="display:none;">
+      A monumental Buddhist architectural project inspired by the legendary Buddhas of Bamiyan, Afghanistan — recreating their spirit at Chokchai, Nakhon Ratchasima, Thailand.
+    </p>
+
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">
+        ☸ ร่วมสร้างพุทธอุทยาน
+      </button>
+      <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        ชมโครงการ →
+      </button>
+    </div>
+  </div>
+
+  <!-- Feature chips bar -->
+  <div class="hero-features">
+    <div class="hero-feature-item">
+      <div class="hero-feature-icon">🏔️</div>
+      <div class="hero-feature-label">พุทธสถาปัตยกรรม</div>
+      <div class="hero-feature-desc">แรงบันดาลใจจากบามิยัน</div>
+    </div>
+    <div class="hero-feature-item">
+      <div class="hero-feature-icon">🧘</div>
+      <div class="hero-feature-label">ศูนย์วิปัสสนาสากล</div>
+      <div class="hero-feature-desc">ปฏิบัติเพื่อความสงบ</div>
+    </div>
+    <div class="hero-feature-item">
+      <div class="hero-feature-icon">📿</div>
+      <div class="hero-feature-label">แหล่งเรียนรู้พุทธศิลป์</div>
+      <div class="hero-feature-desc">ศึกษา ศิลปะ ประวัติศาสตร์</div>
+    </div>
+    <div class="hero-feature-item">
+      <div class="hero-feature-icon">🌿</div>
+      <div class="hero-feature-label">เกษตรพอเพียง</div>
+      <div class="hero-feature-desc">ตามแนวพระราชดำริ</div>
+    </div>
+    <div class="hero-feature-item">
+      <div class="hero-feature-icon">🌺</div>
+      <div class="hero-feature-label">ธรรมะเพื่อสังคม</div>
+      <div class="hero-feature-desc">อบรมคุณธรรม เยาวชน</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <div class="scroll-mouse"></div>
+    <span>เลื่อนลง</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION
+     ============================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <div class="section-eyebrow">เกี่ยวกับโครงการ</div>
+        <h2 class="section-title">
+          พุทธอุทยานโชคชัย-บามิยัน<br>
+          สถานธรรมมาตาปิตโร
+        </h2>
+        <div class="divider-gold"></div>
+        <p class="about-lead">
+          โครงการอันเป็นอนุสรณ์สถานแห่งศรัทธา สร้างขึ้นเพื่อจรรโลงพระพุทธศาสนา
+          เพื่อสร้างความมั่นคง ความรักผูกพัน และจิตสำนึกที่ดีต่อพระพุทธศาสนา
+          ให้คงอยู่กับโลกอย่างมั่นคงสืบไป
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-dot"></div>
+            <span>ศูนย์ปฏิบัติวิปัสสนากรรมฐานภาคอีสาน</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-dot"></div>
+            <span>ศูนย์เผยแผ่พระพุทธศาสนานานาชาติ</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-dot"></div>
+            <span>แหล่งเรียนรู้พุทธศิลปะและประเพณีมาตาปิตโร</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-dot"></div>
+            <span>ศูนย์อบรมคุณธรรม จริยธรรม</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-dot"></div>
+            <span>เครือข่ายปรัชญาของเศรษฐกิจพอเพียง</span>
+          </div>
+        </div>
+        <a class="btn-primary" href="#masterplan" style="display:inline-flex; margin-top:0.5rem;">
+          ดูผังโครงการ →
+        </a>
+      </div>
+
+      <div class="about-visual reveal-right">
+        <div class="about-img-wrap">
+          <img src="images/about-buddha.jpeg" alt="องค์พระพุทธโชคชัย-บามิยัน"
+               style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.style.display='none'">
+          <div class="about-img-placeholder">🏔️</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="stat-number">๖๐ ไร่</div>
+          <div class="stat-label">พื้นที่โครงการทั้งหมด</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline stagger-children" style="margin-top:4rem;">
+      <div class="timeline-item">
+        <div class="timeline-year">๒๕๖๓</div>
+        <div class="timeline-label">เริ่มโครงการ</div>
+        <div class="timeline-desc">จัดตั้งมูลนิธิมาตาปิตโร เริ่มวางแผนโครงการ</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">๒๕๖๔–๒๕๖๘</div>
+        <div class="timeline-label">พัฒนาและก่อสร้าง</div>
+        <div class="timeline-desc">ปรับพื้นที่และและก่อสร้าง รายละเอียดโครงสร้างหลัก</div>
+      </div>
+      <div class="timeline-item" style="border-top-color: var(--gold);">
+        <div class="timeline-year">๒๕๖๘</div>
+        <div class="timeline-label">ก่อสร้างต่อเนื่อง</div>
+        <div class="timeline-desc">รายละเอียดงาน สถาปิดกรรม ปรับพื้นที่ ๑๓ ไร่</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">๒๕๗๐</div>
+        <div class="timeline-label">เปิดอย่างเป็นทางการ</div>
+        <div class="timeline-desc">๕ ธันวาคม ๒๕๗๐ (วันพ่อแห่งชาติ)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BANNER
+     ============================================================ -->
+<div class="stats-banner">
+  <div class="container">
+    <div class="stats-banner-grid">
+      <div class="stats-banner-item">
+        <span class="stats-banner-num" data-counter data-target="60" data-suffix=" ไร่">60 ไร่</span>
+        <span class="stats-banner-label">พื้นที่โครงการ</span>
+      </div>
+      <div class="stats-banner-item">
+        <span class="stats-banner-num" data-counter data-target="7" data-suffix=" ปี">7 ปี</span>
+        <span class="stats-banner-label">ระยะเวลาดำเนินการ ๒๕๖๓–๒๕๗๐</span>
+      </div>
+      <div class="stats-banner-item">
+        <span class="stats-banner-num" data-counter data-target="500" data-suffix="+ ล้าน">500+ ล้าน</span>
+        <span class="stats-banner-label">งบประมาณโครงการ</span>
+      </div>
+      <div class="stats-banner-item">
+        <span class="stats-banner-num" data-counter data-target="10" data-suffix="+">10+</span>
+        <span class="stats-banner-label">อาคารและสิ่งก่อสร้าง</span>
+      </div>
+      <div class="stats-banner-item">
+        <span class="stats-banner-num">∞</span>
+        <span class="stats-banner-label">ประโยชน์เพื่อสังคมและพระพุทธศาสนา</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MASTERPLAN SECTION
+     ============================================================ -->
+<section id="masterplan">
+  <div class="container-wide">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <div class="section-eyebrow center" style="color:var(--sand);">ผังแม่บทโครงการ</div>
+      <h2 class="section-title white center">ผังแม่บทโครงการ</h2>
+      <div class="divider-gold center"></div>
+      <p class="section-subtitle center white">
+        ออกแบบอย่างกลมกลืนกับธรรมชาติ เพื่อเป็นพุทธอุทยานแห่งการเรียนรู้และปฏิบัติธรรมอย่างยั่งยืน
+      </p>
+    </div>
+
+    <div class="masterplan-grid reveal">
+      <!-- Map -->
+      <div class="masterplan-map-wrap">
+        <img src="images/masterplan.jpeg" alt="ผังแม่บทโครงการ"
+             style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.style.display='none'">
+        <div class="masterplan-map-bg">🗺️</div>
+
+        <!-- Hotspots — ตำแหน่งโดยประมาณ สามารถปรับได้ตาม masterplan จริง -->
+        <div class="masterplan-hotspot" data-id="1" style="top:30%;left:50%;">1</div>
+        <div class="masterplan-hotspot" data-id="2" style="top:50%;left:35%;">2</div>
+        <div class="masterplan-hotspot" data-id="3" style="top:60%;left:55%;">3</div>
+        <div class="masterplan-hotspot" data-id="4" style="top:40%;left:65%;">4</div>
+        <div class="masterplan-hotspot" data-id="5" style="top:70%;left:40%;">5</div>
+        <div class="masterplan-hotspot" data-id="6" style="top:55%;left:25%;">6</div>
+        <div class="masterplan-hotspot" data-id="7" style="top:25%;left:30%;">7</div>
+        <div class="masterplan-hotspot" data-id="8" style="top:75%;left:65%;">8</div>
+        <div class="masterplan-hotspot" data-id="9" style="top:80%;left:50%;">9</div>
+        <div class="masterplan-hotspot" data-id="10" style="top:45%;left:78%;">10</div>
+      </div>
+
+      <!-- Legend -->
+      <div class="masterplan-list">
+        <div style="margin-bottom:1rem;">
+          <div class="section-eyebrow" style="color:var(--sand); font-size:0.72rem;">รายละเอียดพื้นที่</div>
+        </div>
+        <div class="masterplan-item" data-id="1">
+          <div class="masterplan-num">1</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">องค์พระพุทธโชคชัย-บามิยัน</div>
+            <div class="masterplan-item-desc">พระพุทธรูปขนาดใหญ่ ประจำโครงการ</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="2">
+          <div class="masterplan-num">2</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">ศาลาประชาคม "พุทธะสัตตมลงกะ"</div>
+            <div class="masterplan-item-desc">ศาลาขนาดใหญ่สำหรับกิจกรรมสาธารณะ</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="3">
+          <div class="masterplan-num">3</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">โดมทำประชุม</div>
+            <div class="masterplan-item-desc">อาคารประชุมและสัมมนา</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="4">
+          <div class="masterplan-num">4</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">หอพระไตรปิฎก</div>
+            <div class="masterplan-item-desc">เก็บรักษาคัมภีร์พระพุทธศาสนา</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="5">
+          <div class="masterplan-num">5</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">ศูนย์วิปัสสนากรรมฐาน</div>
+            <div class="masterplan-item-desc">ห้องปฏิบัติธรรม กุฏิผู้ปฏิบัติ</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="6">
+          <div class="masterplan-num">6</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">ธรรมศาลา / ศาลาเอนกประสงค์</div>
+            <div class="masterplan-item-desc">อบรม บรรยาย กิจกรรมธรรมะ</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="7">
+          <div class="masterplan-num">7</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">หอสมุดและเทคโนโลยี</div>
+            <div class="masterplan-item-desc">ห้องสมุดพุทธศาสนาดิจิทัล</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="8">
+          <div class="masterplan-num">8</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">สานธุรกิจ / สถานีกิจกรรม</div>
+            <div class="masterplan-item-desc">พื้นที่กิจกรรมชุมชน</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="9">
+          <div class="masterplan-num">9</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">พื้นที่เกษตรพอเพียง / สวนป่า</div>
+            <div class="masterplan-item-desc">แปลงสาธิตเกษตรอินทรีย์</div>
+          </div>
+        </div>
+        <div class="masterplan-item" data-id="10">
+          <div class="masterplan-num">10</div>
+          <div class="masterplan-item-text">
+            <div class="masterplan-item-name">ที่จอดรถ / สาธารณูปโภค</div>
+            <div class="masterplan-item-desc">ลานจอดรถ ห้องน้ำ สิ่งอำนวยความสะดวก</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONSTRUCTION SECTION
+     ============================================================ -->
+<section id="construction">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:1rem;">
+      <div class="section-eyebrow center" style="color:var(--sand);">เส้นทางการสร้างสรรค์</div>
+      <h2 class="section-title white center">การก่อสร้างและพัฒนา</h2>
+      <div class="divider-gold center"></div>
+    </div>
+
+    <div class="construction-phases stagger-children">
+      <div class="phase-card">
+        <div class="phase-year">๒๕๖๓</div>
+        <div class="phase-title">เริ่มดำเนินโครงการ</div>
+        <div class="phase-items">
+          <div class="phase-item">จัดตั้งมูลนิธิสถานธรรมมาตาปิตโร</div>
+          <div class="phase-item">วางแผนแม่บทโครงการ</div>
+          <div class="phase-item">ออกแบบสถาปัตยกรรมหลัก</div>
+          <div class="phase-item">เริ่มระดมทุนโครงการ</div>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-year">๒๕๖๔–๒๕๖๘</div>
+        <div class="phase-title">พัฒนาและก่อสร้าง</div>
+        <div class="phase-items">
+          <div class="phase-item">ปรับพื้นที่และและก่อสร้าง</div>
+          <div class="phase-item">รายละเอียดโครงสร้างหลัก</div>
+          <div class="phase-item">งานระบบสาธารณูปโภค</div>
+          <div class="phase-item">ก่อสร้างองค์พระประธาน</div>
+        </div>
+      </div>
+      <div class="phase-card current">
+        <div class="phase-year">๒๕๖๘</div>
+        <div class="phase-title">ก่อสร้างต่อเนื่อง</div>
+        <div class="phase-items">
+          <div class="phase-item">รายละเอียดงานสถาปัตยกรรม</div>
+          <div class="phase-item">ปรับพื้นที่ ๑๓ ไร่</div>
+          <div class="phase-item">ก่อสร้างศาลาและอาคาร</div>
+          <div class="phase-item">งานภูมิทัศน์และสวน</div>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-year">๒๕๗๐</div>
+        <div class="phase-title">เปิดอย่างเป็นทางการ</div>
+        <div class="phase-items">
+          <div class="phase-item">๕ ธันวาคม ๒๕๗๐</div>
+          <div class="phase-item">วันพ่อแห่งชาติ</div>
+          <div class="phase-item">พิธีเปิดอย่างยิ่งใหญ่</div>
+          <div class="phase-item">เปิดให้สาธารณชนเข้าชม</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architecture cards -->
+    <div style="margin-top:3rem;">
+      <h3 style="font-family:var(--font-thai);font-size:1.3rem;font-weight:600;color:var(--sand-light);margin-bottom:2rem;text-align:center;">
+        แนวคิดสถาปัตยกรรม
+      </h3>
+      <div class="arch-grid stagger-children">
+        <div class="arch-card">
+          <div class="arch-card-img">
+            <img src="images/arch-bamiyan.jpg" alt="สถาปัตยกรรมบามิยัน พระพุทธรูปแกะสลักหน้าผา" />
+          </div>
+          <div class="arch-card-body">
+            <div class="arch-card-tag">BAMIYAN STYLE</div>
+            <div class="arch-card-title">สถาปัตยกรรมบามิยัน</div>
+            <p class="arch-card-text">ได้รับแรงบันดาลใจจากพระพุทธรูปแกะสลักในหน้าผาแห่งบามิยัน อัฟกานิสถาน อายุกว่า ๑,๕๐๐ ปี ออกแบบให้กลมกลืนกับภูมิทัศน์ธรรมชาติไทย</p>
+          </div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-card-img">
+            <img src="images/arch-sustainable.jpg" alt="สถาปัตยกรรมยั่งยืน ผาสลักพระพุทธรูปและธรรมชาติแวดล้อม" />
+          </div>
+          <div class="arch-card-body">
+            <div class="arch-card-tag">SUSTAINABLE</div>
+            <div class="arch-card-title">สถาปัตยกรรมยั่งยืน</div>
+            <p class="arch-card-text">ใช้วัสดุธรรมชาติ ไม้ไผ่ หิน และดิน ตามหลักสถาปัตยกรรมพุทธวิถี เน้นความกลมกลืนกับระบบนิเวศท้องถิ่น</p>
+          </div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-card-img">
+            <img src="images/arch-landscape.jpg" alt="ภูมิทัศน์พุทธวิถี สวนพุทธประวัติและสระบัว" />
+          </div>
+          <div class="arch-card-body">
+            <div class="arch-card-tag">LANDSCAPE</div>
+            <div class="arch-card-title">ภูมิทัศน์พุทธวิถี</div>
+            <p class="arch-card-text">ออกแบบภูมิทัศน์ด้วยพรรณไม้ในพุทธประวัติ อาทิ ต้นโพธิ์ ต้นสาละ ต้นพะยอม และสวนสมุนไพรพุทธ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DHARMA SECTION
+     ============================================================ -->
+<section id="dharma">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:1rem;">
+      <div class="section-eyebrow center" style="color:var(--sand);">ศูนย์การเรียนรู้</div>
+      <h2 class="section-title white center">ธรรมะและการเรียนรู้</h2>
+      <div class="divider-gold center"></div>
+      <p class="section-subtitle center white">
+        ศูนย์รวมการเรียนรู้ด้านพุทธศาสนา ศิลปะ วัฒนธรรม และวิถีชีวิตยั่งยืน
+      </p>
+    </div>
+
+    <div class="dharma-grid stagger-children" style="margin-top:3rem;">
+      <div class="dharma-card">
+        <div class="dharma-icon">🧘</div>
+        <div class="dharma-name">วิปัสสนากรรมฐาน</div>
+        <p class="dharma-desc">หลักสูตรนั่งสมาธิและเจริญสติ สำหรับผู้เริ่มต้นถึงระดับสูง</p>
+      </div>
+      <div class="dharma-card">
+        <div class="dharma-icon">🎨</div>
+        <div class="dharma-name">พุทธศิลป์และประวัติศาสตร์</div>
+        <p class="dharma-desc">เรียนรู้ศิลปะพุทธศาสนา ประติมากรรม จิตรกรรม สถาปัตยกรรม</p>
+      </div>
+      <div class="dharma-card">
+        <div class="dharma-icon">🌾</div>
+        <div class="dharma-name">เกษตรพอเพียง</div>
+        <p class="dharma-desc">แปลงเกษตรอินทรีย์ตามแนวพระราชดำริ ปลูกพืชผักสวนครัว</p>
+      </div>
+      <div class="dharma-card">
+        <div class="dharma-icon">🌺</div>
+        <div class="dharma-name">พรรณไม้ในพุทธประวัติ</div>
+        <p class="dharma-desc">สวนพฤกษชาติ รวบรวมต้นไม้ที่ปรากฏในพุทธประวัติกว่า ๘๐ ชนิด</p>
+      </div>
+      <div class="dharma-card">
+        <div class="dharma-icon">📿</div>
+        <div class="dharma-name">อบรมคุณธรรม-จริยธรรม</div>
+        <p class="dharma-desc">หลักสูตรสำหรับเยาวชน ครู นักเรียน และองค์กร</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NEWS & PROGRESS SECTION
+     ============================================================ -->
+<section id="progress">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;">
+      <div>
+        <div class="section-eyebrow">ความคืบหน้าโครงการ</div>
+        <h2 class="section-title">ข่าวสาร/กิจกรรม</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+        <a href="admin.html" class="admin-link-btn" title="ระบบหลังบ้านสำหรับอัปโหลดข่าวสารและภาพกิจกรรม">
+          ⚙️ ระบบหลังบ้าน (อัปโหลดข่าว/ภาพ)
+        </a>
+        <a href="#progress" style="font-family:var(--font-ui);font-size:0.85rem;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:6px;">
+          ดูทั้งหมด →
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="progress-stats stagger-children">
+      <div class="stat-card">
+        <span class="stat-number-big" data-counter data-target="60" data-suffix="">
+          <span>๖๐</span>
+        </span>
+        <span style="font-size:1rem;color:var(--gold);font-family:var(--font-thai)">ไร่</span>
+        <p class="stat-desc">พื้นที่โครงการทั้งหมด</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number-big">
+          <span style="font-family:var(--font-thai)">๗</span>
+        </span>
+        <span style="font-size:1rem;color:var(--gold);font-family:var(--font-thai)">ปี</span>
+        <p class="stat-desc">ระยะเวลาดำเนินการ ๒๕๖๓–๒๕๗๐</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number-big">
+          <span style="font-family:var(--font-thai)">๕๐๐+</span>
+        </span>
+        <span style="font-size:1rem;color:var(--gold);font-family:var(--font-thai)">ล้านบาท</span>
+        <p class="stat-desc">งบประมาณโครงการ</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number-big">
+          <span style="font-family:var(--font-thai)">๑๐+</span>
+        </span>
+        <span style="font-size:1rem;color:var(--gold);font-family:var(--font-thai)">อาคาร</span>
+        <p class="stat-desc">สิ่งปลูกสร้างและอาคาร</p>
+      </div>
+    </div>
+
+    <!-- News Grid -->
+    <div class="news-grid stagger-children" id="newsGrid" style="margin-top:3rem;">
+      <div class="news-card">
+        <div class="news-card-img">
+          🏛️
+          <span class="news-card-category">ข่าวกิจกรรม</span>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-date">22 สิงหาคม 2568</div>
+          <h3 class="news-card-title">พิธีทำบุญปรับพื้นที่โครงการ</h3>
+          <p class="news-card-excerpt">พิธีทำบุญปรับพื้นที่โครงการพุทธอุทยานโชคชัย-บามิยัน สถานธรรมมาตาปิตโร อำเภอโชคชัย จังหวัดนครราชสีมา เพื่อเริ่มดำเนินการก่อสร้างในระยะต่อไป</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-img">
+          🏗️
+          <span class="news-card-category">การก่อสร้าง</span>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-date">10 พฤษภาคม 2568</div>
+          <h3 class="news-card-title">ความคืบหน้างานก่อสร้างองค์พระพุทธโชคชัย-บามิยัน</h3>
+          <p class="news-card-excerpt">อัปเดตความคืบหน้างานก่อสร้างองค์พระประธาน ซึ่งเป็นสัญลักษณ์สำคัญของโครงการพุทธอุทยานโชคชัย-บามิยัน สถานธรรมมาตาปิตโร</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-img">
+          📿
+          <span class="news-card-category">กิจกรรม</span>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-date">5 มกราคม 2568</div>
+          <h3 class="news-card-title">โครงการบรรพชาสามเณรภาคฤดูร้อน ประจำปี 2568</h3>
+          <p class="news-card-excerpt">โครงการบรรพชาสามเณรภาคฤดูร้อน เพื่อปลูกฝังคุณธรรม จริยธรรม และพระพุทธศาสนาให้กับเยาวชน</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DONATE SECTION
+     ============================================================ -->
+<section id="donate">
+  <div class="container">
+    <div class="donate-intro">
+      <div class="reveal-left">
+        <div class="section-eyebrow" style="color:var(--sand);">ร่วมสร้างบุญ</div>
+        <h2 class="section-title white">ร่วมสร้างพุทธอุทยาน</h2>
+        <div class="divider-gold"></div>
+        <p class="section-subtitle white">
+          สร้างบุญ สร้างธรรม สร้างอนาคตให้พระพุทธศาสนา<br>
+          ร่วมเป็นส่วนหนึ่งของอนุสรณ์แห่งศรัทธาระดับโลก
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+          <button class="btn-primary">ร่วมบุญออนไลน์ ☸</button>
+          <button class="btn-outline">ดาวน์โหลดใบอนุโมทนา</button>
+        </div>
+      </div>
+
+      <div class="qr-section reveal-right" style="margin-top:0;padding-top:0;border-top:none;">
+        <div class="section-eyebrow" style="color:var(--sand);justify-content:center;">โอนเงินร่วมบุญ</div>
+        <div class="qr-placeholder">📱</div>
+        <div class="qr-label">สแกน QR Code เพื่อร่วมบุญ<br>หรือ Promptpay / โอนผ่านบัญชีธนาคาร</div>
+        <div style="margin-top:1rem;font-family:var(--font-thai);font-size:0.82rem;color:rgba(200,169,110,0.5);">
+          *หมายเลขบัญชีจะแสดงเมื่อกดปุ่มร่วมบุญ
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-thai);font-size:1.1rem;font-weight:600;color:var(--sand-light);margin-bottom:1.5rem;text-align:center;">
+      เลือกร่วมสร้างบุญ
+    </h3>
+    <div class="donate-options stagger-children">
+      <div class="donate-card">
+        <div class="donate-card-icon">🏛️</div>
+        <div class="donate-card-title">ร่วมสร้างองค์พระ</div>
+        <p class="donate-card-desc">ร่วมสมทบทุนสร้างองค์พระพุทธโชคชัย-บามิยัน ประธานของโครงการ</p>
+        <div class="donate-card-amount">ตั้งแต่ ๑ บาทขึ้นไป</div>
+      </div>
+      <div class="donate-card">
+        <div class="donate-card-icon">🏗️</div>
+        <div class="donate-card-title">ร่วมสร้างอาคารสถาน</div>
+        <p class="donate-card-desc">สมทบทุนก่อสร้างศาลา อาคาร หอพระไตรปิฎก ศูนย์วิปัสสนา</p>
+        <div class="donate-card-amount">ตามกำลังศรัทธา</div>
+      </div>
+      <div class="donate-card">
+        <div class="donate-card-icon">🌳</div>
+        <div class="donate-card-title">ร่วมปลูกต้นไม้</div>
+        <p class="donate-card-desc">ร่วมปลูกพรรณไม้ในพุทธประวัติ สวนสมุนไพร ต้นโพธิ์ ต้นสาละ</p>
+        <div class="donate-card-amount">เริ่มต้น ๕๐๐ บาท</div>
+      </div>
+      <div class="donate-card">
+        <div class="donate-card-icon">📿</div>
+        <div class="donate-card-title">ร่วมสนับสนุนโครงการ</div>
+        <p class="donate-card-desc">สนับสนุนกิจกรรมธรรมะ โครงการเยาวชน และการดำเนินงานโดยรวม</p>
+        <div class="donate-card-amount">ตามกำลังศรัทธา</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VISIT SECTION
+     ============================================================ -->
+<section id="visit">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <div class="section-eyebrow center">เยี่ยมชมโครงการ</div>
+      <h2 class="section-title center">การเดินทางและเยี่ยมชม</h2>
+      <div class="divider-gold center"></div>
+    </div>
+
+    <div class="visit-grid">
+      <div class="reveal-left">
+        <div class="visit-info-cards">
+          <div class="visit-info-card">
+            <div class="visit-info-icon">🕐</div>
+            <div class="visit-info-title">เวลาทำการ</div>
+            <p class="visit-info-text">ทุกวัน<br>เวลา 08:00–17:00 น.<br>(เปิดตลอดปี)</p>
+          </div>
+          <div class="visit-info-card">
+            <div class="visit-info-icon">📍</div>
+            <div class="visit-info-title">ที่ตั้ง</div>
+            <p class="visit-info-text">ต.ด่านเกวียน อ.โชคชัย<br>จ.นครราชสีมา 30190<br>ห่างจากตัวเมือง ~25 กม.</p>
+          </div>
+          <div class="visit-info-card">
+            <div class="visit-info-icon">🚗</div>
+            <div class="visit-info-title">การเดินทาง</div>
+            <p class="visit-info-text">ทางหลวงหมายเลข 224<br>จากโคราชไป อ.โชคชัย<br>มีป้ายบอกทาง</p>
+          </div>
+          <div class="visit-info-card">
+            <div class="visit-info-icon">🅿️</div>
+            <div class="visit-info-title">ที่จอดรถ</div>
+            <p class="visit-info-text">ลานจอดรถขนาดใหญ่<br>รองรับรถยนต์และรถบัส<br>ไม่มีค่าใช้จ่าย</p>
+          </div>
+          <div class="visit-info-card">
+            <div class="visit-info-icon">📞</div>
+            <div class="visit-info-title">ติดต่อ</div>
+            <p class="visit-info-text">มูลนิธิสถานธรรมมาตาปิตโร<br>โทร: 044-XXX-XXXX<br>Line: @matabitaro</p>
+          </div>
+          <div class="visit-info-card">
+            <div class="visit-info-icon">🙏</div>
+            <div class="visit-info-title">ข้อควรปฏิบัติ</div>
+            <p class="visit-info-text">แต่งกายสุภาพ<br>ไม่สวมรองเท้าในอุโบสถ<br>รักษาความสงบ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <div class="map-placeholder"
+             onclick="window.open('https://maps.google.com/?q=โชคชัย+นครราชสีมา', '_blank')"
+             title="เปิด Google Maps">
+          🗺️
+        </div>
+        <div style="margin-top:1.5rem;padding:1.5rem;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
+          <h4 style="font-family:var(--font-thai);font-size:0.95rem;font-weight:600;color:var(--brown);margin-bottom:1rem;">
+            กิจกรรมปฏิบัติธรรม (ประจำเดือน)
+          </h4>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:12px;font-family:var(--font-thai);font-size:0.82rem;color:var(--brown-light);">
+              <span style="color:var(--gold);font-weight:600;min-width:80px;">ทุกวันพระ</span>
+              <span>นั่งสมาธิ ทำบุญ ฟังธรรม</span>
+            </div>
+            <div style="display:flex;gap:12px;font-family:var(--font-thai);font-size:0.82rem;color:var(--brown-light);">
+              <span style="color:var(--gold);font-weight:600;min-width:80px;">ทุกวันอาทิตย์</span>
+              <span>อบรมธรรมะสำหรับเยาวชน</span>
+            </div>
+            <div style="display:flex;gap:12px;font-family:var(--font-thai);font-size:0.82rem;color:var(--brown-light);">
+              <span style="color:var(--gold);font-weight:600;min-width:80px;">ค่ายธรรมะ</span>
+              <span>ทุกช่วงปิดภาคเรียน</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="images/logo.jpg" alt="ตรามูลนิธิพุทธบารมีญาณ" class="footer-logo-img" />
+          <div class="footer-logo-name">
+            พุทธอุทยานโชคชัย-บามิยัน
+            <span>สถานธรรมมาตาปิตโร</span>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          อนุสรณ์แห่งศรัทธา เพื่อสืบทอดพระพุทธศาสนาแก่โลก<br>
+          ต.ด่านเกวียน อ.โชคชัย จ.นครราชสีมา
+        </p>
+        <div class="footer-social">
+          <div class="footer-social-btn" title="Facebook">f</div>
+          <div class="footer-social-btn" title="YouTube">▶</div>
+          <div class="footer-social-btn" title="Line">L</div>
+          <div class="footer-social-btn" title="Instagram">◎</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">เมนูหลัก</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#about">เกี่ยวกับโครงการ</a>
+          <a class="footer-link" href="#masterplan">ผังโครงการ</a>
+          <a class="footer-link" href="#construction">การก่อสร้าง</a>
+          <a class="footer-link" href="#dharma">ธรรมและการเรียนรู้</a>
+          <a class="footer-link" href="#progress">ข่าวสาร/กิจกรรม</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">ร่วมสนับสนุน</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#donate">ร่วมสร้างบุญ</a>
+          <a class="footer-link" href="#donate">ร่วมสร้างองค์พระ</a>
+          <a class="footer-link" href="#donate">ร่วมสร้างอาคาร</a>
+          <a class="footer-link" href="#donate">ร่วมปลูกต้นไม้</a>
+          <a class="footer-link" href="#visit">เยี่ยมชม</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">ติดต่อเรา</div>
+        <div class="footer-links">
+          <div class="footer-link">📍 ต.ด่านเกวียน อ.โชคชัย</div>
+          <div class="footer-link">จ.นครราชสีมา 30190</div>
+          <div class="footer-link">📞 044-XXX-XXXX</div>
+          <div class="footer-link">✉️ info@matabitaro.org</div>
+          <div class="footer-link">🌐 www.matabitaro.org</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © ๒๕๖๘ มูลนิธิสถานธรรมมาตาปิตโร · สงวนลิขสิทธิ์
+      </p>
+      <div class="footer-bottom-links">
+        <a class="footer-bottom-link" href="#">นโยบายความเป็นส่วนตัว</a>
+        <a class="footer-bottom-link" href="#">เงื่อนไขการใช้งาน</a>
+        <a class="footer-bottom-link" href="#">แผนผังเว็บไซต์</a>
+        <a class="footer-bottom-link" href="admin.html" style="color:var(--gold);">🔐 ระบบจัดการหลังบ้าน</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     ARTICLE READER MODAL
+     ============================================================ -->
+<div class="article-modal-overlay" id="articleModal">
+  <div class="article-modal-container">
+    <button type="button" class="article-modal-close" id="articleModalClose" aria-label="ปิด">&times;</button>
+    <div class="article-modal-img-wrap" id="articleModalImgWrap">
+      <img id="articleModalImg" src="" alt="ภาพประกอบข่าว" />
+    </div>
+    <div class="article-modal-content-wrap">
+      <span class="article-modal-tag" id="articleModalTag">ข่าวกิจกรรม</span>
+      <div class="article-modal-date" id="articleModalDate"></div>
+      <h2 class="article-modal-title" id="articleModalTitle"></h2>
+      <div class="article-modal-body" id="articleModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/news-db.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
